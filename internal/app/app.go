@@ -8,7 +8,6 @@ import (
 	"hl3-projectmanagement/pkg/store"
 	"log"
 
-	"github.com/joho/godotenv"
 	"os"
 )
 
@@ -17,12 +16,6 @@ import (
 
 func Run() {
 	log.SetFlags(log.Llongfile)
-
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatal(err)
-		return
-	}
 
 	postgreUser := os.Getenv("POSTGRES_USER")
 	dbName := os.Getenv("POSTGRES_DB")
