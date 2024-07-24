@@ -2,6 +2,7 @@ package store
 
 import (
 	"errors"
+	"fmt"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 )
@@ -23,6 +24,7 @@ func New(dsn string, insertExampleValues bool) (store SQLX, err error) {
 		err = errors.New("error in migrate:" + err.Error())
 	}
 	store.Client = db
+	fmt.Println("Migrate successfully")
 
 	if insertExampleValues {
 		err = store.InsertExampleValues()
