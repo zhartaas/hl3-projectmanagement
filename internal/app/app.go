@@ -20,8 +20,8 @@ func Run() {
 	postgreUser := os.Getenv("POSTGRES_USER")
 	dbName := os.Getenv("POSTGRES_DB")
 	password := os.Getenv("POSTGRES_PASSWORD")
-	host := "postgres"
-	port := "5432"
+	host := os.Getenv("POSTGRES_HOST")
+	port := os.Getenv("POSTGRES_PORT")
 
 	//dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=disable", host, postgreUser, password, dbName)
 	dsn := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable", postgreUser, password, host, port, dbName)
